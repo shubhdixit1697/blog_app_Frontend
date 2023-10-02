@@ -1,0 +1,2 @@
+Storage {data: '{"token":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaGlmYWx…ests","roles":[{"id":502,"name":"Normal_USER"}]}}', length: 1}
+"{"token":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaGlmYWxpQGdtYWlsLmNvbSIsImV4cCI6MTY5MzM0MTkzNCwiaWF0IjoxNjkwNzQ5OTM0fQ.3cLaTYJPssRIg-jJn2b_xYhPtuGs1XKfVMlcCANIJaNs1NBa5hIv_YVjzalUFzJBD4LyJqsqPt6Z2-18L8pj9A","user":{"id":16,"name":"Shifali Dixit","email":"shifali@gmail.com","about":"Hello, Login Requests","roles":[{"id":502,"name":"Normal_USER"}]}}"
