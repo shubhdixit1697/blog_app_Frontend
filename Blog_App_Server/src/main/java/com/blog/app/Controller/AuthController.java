@@ -1,11 +1,11 @@
 package com.blog.app.Controller;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
-
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -14,9 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.blog.app.entities.User;
 import com.blog.app.payload.JwtAuthRequest;
 import com.blog.app.payload.JwtAuthResponse;
-
+import com.blog.app.payload.UserDto;
 import com.blog.app.security.JwtTokenHelper;
 
 @RestController
@@ -31,8 +32,11 @@ public class AuthController {
 	
 	@Autowired
 	private AuthenticationManager authenticationManager;
+	
+	@Autowired
+	private ModelMapper mapper;
 
-	@PostMapping("/loginn")
+	@PostMapping("/login")
 	public ResponseEntity<JwtAuthResponse> createToken(
 			@RequestBody JwtAuthRequest request) throws Exception{
 		System.out.println("HELLO");
@@ -43,6 +47,7 @@ public class AuthController {
 		
 		JwtAuthResponse response=new JwtAuthResponse();
 		response.setToken(token);
+		response.setUser(this.mapper.map((User)userDetailsService, UserDto.class));
 		return new ResponseEntity<JwtAuthResponse>(response,HttpStatus.OK);
 	}
 	

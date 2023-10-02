@@ -44,7 +44,10 @@ public class User implements UserDetails {
 	@Column(name="user_name" , nullable=false , length=100)
 	private String name;
 	private String password;
+	
+	@Column(unique=true)
 	private String email;
+	
 	private String about;
 	
 	//mapping to category user in post
